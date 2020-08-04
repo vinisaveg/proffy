@@ -1,6 +1,6 @@
-<!-- <p align="center">
-    <img src=""/>
-</p> -->
+<p align="center">
+    <img src="https://github.com/vinisaveg/proffy/blob/master/.github/proffy-logo.svg"/>
+</p> 
 
 # Next Level Week #2 - Proffy
 
@@ -9,8 +9,8 @@
 ### Estado da aplicação :clapper:
 
 - [x] Setup do projeto
-- [] Aplicação Web
-- [] Aplicação Mobile
+- [ ] Aplicação Web
+- [ ] Aplicação Mobile
 
 ### Instalação :construction_worker:
 
