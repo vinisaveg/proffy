@@ -24,7 +24,7 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = (props) => {
         <div className="header-content">
           <strong>{props.title}</strong>
 
-          {/* Form */}
+          {props.children}
         </div>
       </header>
     </header>
