@@ -9,6 +9,7 @@
 ### Estado da aplicação :clapper:
 
 - [x] Setup do projeto
+- [ ] API do projeto
 - [ ] Aplicação Web
 - [ ] Aplicação Mobile
 
