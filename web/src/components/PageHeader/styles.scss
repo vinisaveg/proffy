@@ -1,0 +1,41 @@
+.page-header {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-primary);
+
+  .top-bar-container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-text-in-primary);
+    padding: 1.6rem 0;
+
+    a {
+      height: 3.2rem;
+      transition: opacity 200ms;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    img.logo {
+      height: 1.6rem;
+    }
+  }
+
+  .header-content {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    margin: 3.2rem auto;
+
+    strong {
+      font: 700 3.2rem Archivo;
+      line-height: 4.2rem;
+      color: var(--color-text-in-primary);
+    }
+  }
+}
