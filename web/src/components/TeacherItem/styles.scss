@@ -54,7 +54,7 @@
       }
     }
 
-    button {
+    a {
       width: 20rem;
       height: 5.6rem;
       background-color: var(--color-secundary);
@@ -68,6 +68,7 @@
       justify-content: space-evenly;
       transition: 200ms;
       cursor: pointer;
+      text-decoration: none;
 
       &:hover {
         background-color: var(--color-secundary-dark);
