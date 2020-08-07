@@ -1,6 +1,6 @@
 <p align="center">
     <img src="https://github.com/vinisaveg/proffy/blob/master/.github/proffy-logo.svg"/>
-</p> 
+</p>
 
 # Next Level Week #2 - Proffy
 
@@ -10,7 +10,7 @@
 
 - [x] Setup do projeto
 - [x] API do projeto
-- [ ] Aplicação Web
+- [x] Aplicação Web
 - [ ] Aplicação Mobile
 
 ### Instalação :construction_worker:
