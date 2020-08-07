@@ -18,6 +18,10 @@ const Landing = () => {
     navigation.navigate("GiveClasses")
   }
 
+  function handleNavigationToStudyPage() {
+    navigation.navigate("Study")
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <Image source={landingImage} style={styles.banner} />
@@ -28,7 +32,7 @@ const Landing = () => {
       </Text>
 
       <View style={styles.buttonsContainer}>
-        <RectButton style={[styles.button, styles.buttonPrimary]}>
+        <RectButton onPress={handleNavigationToStudyPage} style={[styles.button, styles.buttonPrimary]}>
           <Image source={studyIcon} />
           <Text style={styles.buttonText}>Estudar</Text>
         </RectButton>
