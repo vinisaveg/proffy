@@ -11,7 +11,7 @@
 - [x] Setup do projeto
 - [x] API do projeto
 - [x] Aplicação Web
-- [ ] Aplicação Mobile
+- [x] Aplicação Mobile
 
 ### Instalação :construction_worker:
 
