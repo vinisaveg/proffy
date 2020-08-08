@@ -1,27 +1,48 @@
 import React, { useState } from "react"
 import { View, Text } from "react-native"
-
-import PageHeader from "../../components/PageHeader"
-import TeacherItem, { Teacher } from "../../components/TeacherItem"
 import { ScrollView, TextInput, BorderlessButton, RectButton } from "react-native-gesture-handler"
 import { Feather } from "@expo/vector-icons"
 
-import styles from "./styles"
+import AsyncStorage from "@react-native-community/async-storage"
+import { useFocusEffect } from "@react-navigation/native"
 import api from "../../services/api"
+
+import PageHeader from "../../components/PageHeader"
+import TeacherItem, { Teacher } from "../../components/TeacherItem"
+
+import styles from "./styles"
 
 function TeacherList() {
   const [isFiltersVisible, setIsFiltersVisible] = useState(false)
+  const [favorites, setFavorites] = useState<number[]>([])
   const [teachers, setTeachers] = useState([])
 
   const [subject, setSubject] = useState("")
   const [weekDay, setWeekDay] = useState("")
   const [time, setTime] = useState("")
 
+  function loadFavorites() {
+    AsyncStorage.getItem("favorites").then((response) => {
+      if (response) {
+        const favoritedTeachers = JSON.parse(response)
+        const favoritedTeachersIds = favoritedTeachers.map((teacher: Teacher) => teacher.id)
+
+        setFavorites(favoritedTeachersIds)
+      }
+    })
+  }
+
+  useFocusEffect(() => {
+    loadFavorites()
+  })
+
   function handleToggleFiltersVisible() {
     setIsFiltersVisible(!isFiltersVisible)
   }
 
   async function handleFiltersSubmit() {
+    loadFavorites()
+
     const response = await api.get("classes", {
       params: {
         subject,
@@ -40,7 +61,7 @@ function TeacherList() {
       <PageHeader
         title="Proffys disponíveis"
         headerRight={
-          <BorderlessButton onPress={handleToggleFiltersVisible}>
+          <BorderlessButton style={styles.featherIcon} onPress={handleToggleFiltersVisible}>
             <Feather name="filter" size={20} color="#fff" />
           </BorderlessButton>
         }
@@ -84,6 +105,12 @@ function TeacherList() {
         )}
       </PageHeader>
 
+      <View style={styles.noContent}>
+        {teachers.length <= 0 ? (
+          <Text style={styles.noContentText}>Faça uma busca por professores, utilizando o filtro...</Text>
+        ) : null}
+      </View>
+
       <ScrollView
         style={styles.teacherList}
         contentContainerStyle={{
@@ -92,7 +119,7 @@ function TeacherList() {
         }}
       >
         {teachers.map((teacher: Teacher) => {
-          return <TeacherItem key={teacher.id} teacher={teacher} />
+          return <TeacherItem key={teacher.id} teacher={teacher} favorited={favorites.includes(teacher.id)} />
         })}
       </ScrollView>
     </View>
